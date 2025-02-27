@@ -1,0 +1,38 @@
+{
+  "name": "vilniusnewsbot",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevSimas/VilniusNewsBot.git"
+  },
+  "keywords": [
+    "scraper",
+    "news",
+    "email",
+    "nodejs"
+  ],
+  "author": "DevSimas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevSimas/VilniusNewsBot/issues"
+  },
+  "homepage": "https://github.com/DevSimas/VilniusNewsBot#readme",
+  "description": "A web scraper that fetches the latest news articles from madeinvilnius.lt and sends them via email.",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.3.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
