@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const { logInfo, logError } = require('./logger');
 require('dotenv').config();
 
 /**
@@ -40,9 +41,9 @@ async function sendArticlesEmail(articles) {
 
     try {
         await transporter.sendMail(mailOptions);
-        console.log(`✅ Articles email sent successfully!`);
+        logInfo(`Articles email sent successfully!`);
     } catch (error) {
-        console.error('❌ Failed to send articles email:', error);
+        logError(`Failed to send articles email: ${error.message}`);
     }
 }
 
@@ -64,9 +65,9 @@ async function sendErrorEmail(error) {
 
     try {
         await transporter.sendMail(mailOptions);
-        console.log(`✅ Error report email sent!`);
+        logInfo(`Error report email sent successfully!`);
     } catch (error) {
-        console.error('❌ Failed to send error report email:', error);
+        logError(`Failed to send error report email: ${error.message}`);
     }
 }
 

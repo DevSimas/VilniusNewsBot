@@ -2,6 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs-extra');
 const path = require('path');
+const { logInfo, logError } = require('./logger');
 
 const URL = 'https://madeinvilnius.lt/verslas/statybos-vilniuje/';
 const PIDS_FILE = path.join(__dirname, '../data/pids.json');
@@ -12,6 +13,7 @@ const PIDS_FILE = path.join(__dirname, '../data/pids.json');
  */
 async function fetchArticles() {
     try {
+        logInfo(`Fetching articles...`);
         const { data } = await axios.get(URL);
         const $ = cheerio.load(data);
 
@@ -29,7 +31,7 @@ async function fetchArticles() {
 
         return articles;
     } catch (error) {
-        console.error('Error fetching articles:', error.message);
+        logError(`Error fetching articles: ${error.message}`);
         return [];
     }
 }
